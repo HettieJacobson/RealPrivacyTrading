@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Cache - Privacy Asset Trading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        button {
+            background: #00ff00;
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #00dd00;
+            transform: scale(1.05);
+        }
+        .warning {
+            background: rgba(255,255,0,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧹 Clear Browser Cache</h1>
+        <div class="warning">
+            <h3>⚠️ If you're seeing voting errors:</h3>
+            <p>These errors are NOT from this Privacy Asset Trading project. They come from other DApps or cached data.</p>
+        </div>
+        
+        <h3>Steps to fix voting errors:</h3>
+        <ol style="text-align: left; max-width: 400px; margin: 0 auto;">
+            <li>Close ALL browser tabs with DApps</li>
+            <li>Clear browser cache and local storage</li>
+            <li>Disconnect and reconnect MetaMask</li>
+            <li>Only open this Privacy Asset Trading app</li>
+        </ol>
+        
+        <button onclick="clearLocalStorage()">Clear Local Storage</button>
+        <button onclick="clearSessionStorage()">Clear Session Storage</button>
+        <button onclick="reloadPage()">Reload Page</button>
+        
+        <div style="margin-top: 30px; padding: 20px; background: rgba(0,255,0,0.1); border-radius: 8px;">
+            <h3>✅ This project only contains:</h3>
+            <ul style="text-align: left; max-width: 300px; margin: 0 auto;">
+                <li>Asset trading functions</li>
+                <li>Portfolio management</li>
+                <li>Market price queries</li>
+                <li>Order placement</li>
+            </ul>
+            <p><strong>NO VOTING FUNCTIONALITY</strong></p>
+        </div>
+        
+        <button onclick="goToApp()" style="background: #0088ff; color: white; margin-top: 20px;">
+            Go to Clean Trading App
+        </button>
+    </div>
+
+    <script>
+        function clearLocalStorage() {
+            localStorage.clear();
+            alert('Local storage cleared!');
+        }
+        
+        function clearSessionStorage() {
+            sessionStorage.clear();
+            alert('Session storage cleared!');
+        }
+        
+        function reloadPage() {
+            window.location.reload(true);
+        }
+        
+        function goToApp() {
+            // Clear everything and go to main app
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href = '/';
+        }
+        
+        // Auto-clear on load
+        console.log('Clearing any cached voting data...');
+        
+        // Check for any voting-related keys and remove them
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+            const key = localStorage.key(i);
+            if (key && (key.includes('vote') || key.includes('resolution') || key.includes('quorum'))) {
+                localStorage.removeItem(key);
+                console.log('Removed voting-related key:', key);
+            }
+        }
+        
+        console.log('✅ Cache cleanup complete - only trading functions remain');
+    </script>
+</body>
+</html>
