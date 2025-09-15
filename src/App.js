@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import './App.css';
 
 // Contract configuration
-const CONTRACT_ADDRESS = "0x3f25F27D0F0816F32C5f6d5EC5b83640c2A0B1ef"; // Privacy Asset Trading Contract
+const CONTRACT_ADDRESS = "0x7eA6E43F5131c69536fd97e9Ea267eA14B20061b"; // Privacy Asset Trading Contract
 const CONTRACT_ABI = [
   "function placeOrder(string memory pair, bool isLong, uint32 amount, uint32 price) external returns (uint256)",
   "function quickBuy(string memory pair, uint32 amount) external returns (uint256)",
